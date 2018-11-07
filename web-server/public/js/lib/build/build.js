@@ -1401,8 +1401,8 @@ require.register("pomelonode-pomelo-jsclient-websocket/lib/pomelo-client.js", fu
     var host = params.host;
     var port = params.port;
 
-    // var url = 'ws://' + host;
-    var url = 'wss://' + host;
+    // var url = 'wss://' + host;
+    var url = 'ws://' + host;
     if(port) {
       url +=  ':' + port;
     }
