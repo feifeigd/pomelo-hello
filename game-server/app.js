@@ -1,4 +1,4 @@
-var fs = require('fs');
+//var fs = require('fs');
 var pomelo = require('pomelo');
 
 /**
@@ -15,11 +15,11 @@ app.configure('production|development', 'connector', function(){
       heartbeat : 3,
       useDict : true,
       useProtobuf : true,
-      ssl: {
+      /*ssl: {
         type: 'wss',
       	key: fs.readFileSync('../shared/server.key'),
   			cert: fs.readFileSync('../shared/server.crt')
-      }
+      }*/
     });
 });
 

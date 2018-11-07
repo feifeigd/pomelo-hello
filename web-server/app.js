@@ -1,12 +1,12 @@
-var https = require('https');
+// var https = require('https');
 var express = require('express');
 
 var fs = require('fs');
 
-var options = {
+/*var options = {
   key: fs.readFileSync('../shared/server.key'),
   cert: fs.readFileSync('../shared/server.crt')
-};
+};*/
 
 var app = express();
 
@@ -33,6 +33,6 @@ app.configure('production', function(){
 
 console.log("Web server has started.\nPlease log on http://127.0.0.1:3001/index.html");
 
-var httpsServer = https.createServer(options, app);
-
-httpsServer.listen(3001);
+/*var httpsServer = https.createServer(options, app);
+httpsServer.listen(3001);*/
+app.listen(3001);
