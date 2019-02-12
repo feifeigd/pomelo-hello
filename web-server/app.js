@@ -10,26 +10,28 @@ var fs = require('fs');
 
 var app = express();
 
-app.configure(function(){
-  app.use(express.methodOverride());
-  app.use(express.bodyParser());
-  app.use(app.router);
-  app.set('view engine', 'jade');
-  app.set('views', __dirname + '/public');
-  app.set('view options', {layout: false});
-  app.set('basepath',__dirname + '/public');
-});
+//app.use(express.methodOverride());
+//app.use(express.bodyParser());
+//app.use(app.router);
+app.set('view engine', 'jade');
+app.set('views', __dirname + '/public');
+app.set('view options', {layout: false});
+app.set('basepath', __dirname + '/public');
 
-app.configure('development', function(){
+let env = process.env.NODE_ENV || 'development';
+
+let errorhandler = require('errorhandler');
+
+if('development' == env){
   app.use(express.static(__dirname + '/public'));
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-});
+  app.use(errorhandler({log: false}));  // Only send the error back in the response @see https://www.npmjs.com/package/errorhandler
+}
 
-app.configure('production', function(){
+if('production' == env){
   var oneYear = 31557600000;
   app.use(express.static(__dirname + '/public', { maxAge: oneYear }));
-  app.use(express.errorHandler());
-});
+  app.use(errorHandler());
+}
 
 console.log("Web server has started.\nPlease log on http://127.0.0.1:3001/index.html");
 

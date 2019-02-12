@@ -2,7 +2,14 @@
   "name": "pomelo-hello",
   "version": "0.0.1",
   "private": false,
+  "description": "pomelo-hello",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:feifeigd/pomelo-hello.git"
+  },
   "dependencies": {
-    "express": "3.4.8"
+    "errorhandler": "^1.5.0",
+    "express": "^4.16.4"
   }
 }
